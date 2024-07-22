@@ -1,55 +1,48 @@
-from PyQt5.QtWidgets import QMainWindow, QPushButton, QVBoxLayout, QWidget, QLabel, QHBoxLayout, QScrollArea, QFrame
-from algorithms.evolution import EvolutionAlgorithm
+from PyQt5.QtWidgets import QMainWindow, QVBoxLayout, QPushButton, QWidget, QLabel
 from gui.board import Board
 
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
-        self.setWindowTitle('Project Evolution')
-        self.algorithm = EvolutionAlgorithm()
-        self.num_dots = 50  # Liczba kropek do narysowania
-        self.num_food = 20  # Liczba jedzenia do narysowania
-        self.initUI()
 
-    def initUI(self):
-        self.setGeometry(100, 100, 800, 600)  # Zwiększ rozmiar okna
+        self.setWindowTitle("Evolution Project")
+        self.setGeometry(100, 100, 800, 600)
 
-        self.start_button = QPushButton('Start Evolution')
+        self.central_widget = QWidget()
+        self.setCentralWidget(self.central_widget)
+
+        self.layout = QVBoxLayout(self.central_widget)
+
+        self.board = Board()
+        self.layout.addWidget(self.board)
+
+        self.start_button = QPushButton("Start Evolution", self)
         self.start_button.clicked.connect(self.start_evolution)
-        
-        self.board = Board()  # Utwórz widżet planszy
-        self.board.dots_updated.connect(self.update_stats)  # Połącz sygnał dots_updated z metodą update_stats
-
-        self.stats_area = QScrollArea()
-        self.stats_area.setWidgetResizable(True)
-        self.stats_content = QWidget()
-        self.stats_layout = QVBoxLayout(self.stats_content)
-        self.stats_area.setWidget(self.stats_content)
+        self.layout.addWidget(self.start_button)
 
         self.stats_labels = []
-        for i in range(self.num_dots):
-            label = QLabel(f"Dot #{i + 1} Food: 0")
-            self.stats_labels.append(label)
-            self.stats_layout.addWidget(label)
-
-        layout = QHBoxLayout()
-        layout.addWidget(self.board)  # Dodaj planszę do układu
-        layout.addWidget(self.stats_area)
-
-        main_layout = QVBoxLayout()
-        main_layout.addLayout(layout)
-        main_layout.addWidget(self.start_button)
-        
-        container = QWidget()
-        container.setLayout(main_layout)
-        self.setCentralWidget(container)
+        self.stats_layout = QVBoxLayout()
+        self.layout.addLayout(self.stats_layout)
 
     def start_evolution(self):
-        self.board.add_dots(self.num_dots)
-        self.board.add_food(self.num_food)
+        self.board.add_dots(10)  # Inicjalizuje 10 kropek
+        self.board.add_food(5)   # Inicjalizuje jedzenie, możesz dostosować liczbę jedzenia
+        self.board.start_food_timer(5000)  # Dodaje jedzenie co 5 sekund
+        self.board.start_food_depletion_timer(20000)  # Zmniejsza jedzenie co 20 sekund
         self.update_stats()
-        self.algorithm.run()
+        self.board.dots_updated.connect(self.update_stats)
 
     def update_stats(self):
+        # Usuwamy istniejące etykiety
+        for label in self.stats_labels:
+            self.stats_layout.removeWidget(label)
+            label.deleteLater()
+
+        self.stats_labels = []
+
+        # Dodajemy nowe etykiety
         for i, dot in enumerate(self.board.dots):
-            self.stats_labels[i].setText(f"Dot #{i + 1} Food: {dot.food_eaten}")
+            status = "Dead" if dot.food_eaten == 0 else f"Food: {dot.food_eaten}"
+            label = QLabel(f"Dot #{i + 1} {status}", self)
+            self.stats_labels.append(label)
+            self.stats_layout.addWidget(label)
