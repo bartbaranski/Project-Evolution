@@ -1,3 +1,7 @@
+import random
+
+
+
 class EvolutionAlgorithm:
     def __init__(self):
         # Inicjalizujemy parametry algorytmu
@@ -23,6 +27,14 @@ class EvolutionAlgorithm:
     def mutation(self):
         # Metoda mutacji
         pass  # Zastąpienie późniejszą implementacją
+
+    def mutate(self, dot):
+        # Prosta mutacja - zmienia prędkość kropki
+        dot.speed += random.uniform(-0.5, 0.5)
+        if dot.speed < 0.5:
+            dot.speed = 0.5
+        elif dot.speed > 5:
+            dot.speed = 5
 
     def run(self):
         # Główna pętla algorytmu ewolucyjnego
