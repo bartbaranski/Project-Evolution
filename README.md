@@ -4,12 +4,14 @@ This project is a Python-based evolutionary simulation that visualizes autonomou
 <h2>Features</h2>
 <ul>
   <li>Autonomous Dots: Entities (dots) navigate the board, searching for food. Their movement and reproduction depend on food consumption.</li>
-  Food Mechanics: Food items (green triangles) spawn periodically on the board. Dots that consume food can reproduce; those that deplete their food levels die.
-  Evolutionary Algorithm: Each entity can mutate slightly when reproducing, simulating evolution and adaptation over time.
-  Live Statistics: The UI displays real-time statistics for each dot, including its current food level and status (alive or dead).
+  <li>Food Mechanics: Food items (green triangles) spawn periodically on the board. Dots that consume food can reproduce; those that deplete their food levels die.</li>
+  <li>Evolutionary Algorithm: Each entity can mutate slightly when reproducing, simulating evolution and adaptation over time.</li>
+  <li>Live Statistics: The UI displays real-time statistics for each dot, including its current food level and status (alive or dead).</li>
 </ul>
-Technologies
-Python: Core logic, algorithms, and object-oriented structure.
-PyQt5: GUI components, including the simulation board and real-time updates.
-Randomized Behavior: Randomized spawning locations and food consumption mechanics.
-Evolutionary Dynamics: Mutation and selection within a simple evolutionary algorithm framework.
+<h2>Technologies</h2>
+<ul>
+<li>Python: Core logic, algorithms, and object-oriented structure.</li>
+<li>PyQt5: GUI components, including the simulation board and real-time updates.</li>
+<li>Randomized Behavior: Randomized spawning locations and food consumption mechanics.</li>
+<li>Evolutionary Dynamics: Mutation and selection within a simple evolutionary algorithm framework.</li>
+</ul>
