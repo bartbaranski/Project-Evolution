@@ -15,3 +15,15 @@ This project is a Python-based evolutionary simulation that visualizes autonomou
 <li>Randomized Behavior: Randomized spawning locations and food consumption mechanics.</li>
 <li>Evolutionary Dynamics: Mutation and selection within a simple evolutionary algorithm framework.</li>
 </ul>
+<h2>Usage</h2>
+<ul>
+<li>Start Simulation: Click the "Start Evolution" button in the GUI.</li>
+<li>Observe: Watch dots navigate towards food, reproduce, and adapt over time.</li>
+<li>Statistics: Check each dot’s food level and status on the side panel.</li>
+</ul>
+<h2>Future Improvements</h2>
+<ul>
+<li>Enhanced mutation mechanics with additional traits (e.g., speed, size).</li>
+<li>Smarter pathfinding or neural network integration.</li>
+<li>Expanded GUI features, including customizable settings for population and mutation rate.</li>
+</ul>
