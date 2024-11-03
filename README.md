@@ -1,4 +1,4 @@
-Evolution Simulation Project
+<h1>Evolution Simulation Project</h1>
 This project is a Python-based evolutionary simulation that visualizes autonomous entities (dots) moving on a board, seeking food and reproducing based on resource availability. The project demonstrates a simple evolutionary algorithm with principles of natural selection, mutation, and reproduction.
 
 Features
