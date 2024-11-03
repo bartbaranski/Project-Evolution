@@ -5,31 +5,31 @@ import random
 class EvolutionAlgorithm:
     def __init__(self):
         
-        self.population_size = 100  
-        self.generations = 50  
+        self.population_size = 100
+        self.generations = 50
 
     def initialize_population(self):
         
-        pass  
+        pass
 
     def evaluate_fitness(self):
         
-        pass 
+        pass
 
     def selection(self):
         
-        pass  
+        pass
 
     def crossover(self):
-       
+        
         pass  
 
     def mutation(self):
-        
-        pass  
+       
+        pass
 
     def mutate(self, dot):
-        
+      
         dot.speed += random.uniform(-0.5, 0.5)
         if dot.speed < 0.5:
             dot.speed = 0.5
@@ -38,10 +38,10 @@ class EvolutionAlgorithm:
 
     def run(self):
         
-        self.initialize_population()  
-        for generation in range(self.generations):  
-            self.evaluate_fitness()  
-            self.selection()
-            self.crossover()
-            self.mutation() 
-        
+        self.initialize_population()
+        for generation in range(self.generations):
+            self.evaluate_fitness()
+            self.selection()  
+            self.crossover()  
+            self.mutation()  
+            

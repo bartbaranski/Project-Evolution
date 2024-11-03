@@ -25,10 +25,10 @@ class MainWindow(QMainWindow):
         self.layout.addLayout(self.stats_layout)
 
     def start_evolution(self):
-        self.board.add_dots(10)  # Inicjalizuje 10 kropek
-        self.board.add_food(5)   # Inicjalizuje jedzenie, możesz dostosować liczbę jedzenia
-        self.board.start_food_timer(5000)  # Dodaje jedzenie co 5 sekund
-        self.board.start_food_depletion_timer(20000)  # Zmniejsza jedzenie co 20 sekund
+        self.board.add_dots(10)
+        self.board.add_food(5)
+        self.board.start_food_timer(5000)
+        self.board.start_food_depletion_timer(20000) 
         self.update_stats()
         self.board.dots_updated.connect(self.update_stats)
 
@@ -40,7 +40,7 @@ class MainWindow(QMainWindow):
 
         self.stats_labels = []
 
-        # Dodajemy nowe etykiety
+       
         for i, dot in enumerate(self.board.dots):
             status = "Dead" if dot.food_eaten == 0 else f"Food: {dot.food_eaten}"
             label = QLabel(f"Dot #{i + 1} {status}", self)

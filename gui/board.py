@@ -10,7 +10,7 @@ class Dot:
         self.x = x
         self.y = y
         self.speed = speed
-        self.food_eaten = 5  # Początkowa ilość jedzenia
+        self.food_eaten = 5  #starting amount of food
         self.target_x = None
         self.target_y = None
 
@@ -68,7 +68,7 @@ class Board(QWidget):
             dot.choose_random_target(self.width(), self.height())
             self.dots.append(dot)
         self.update()
-        self.move_timer.start(100)  # Aktualizujemy pozycję kropek co 100 ms
+        self.move_timer.start(100)  #dot position refrofreshed
 
     def add_food(self, num_food):
         for _ in range(num_food):
@@ -78,7 +78,7 @@ class Board(QWidget):
         self.update()
 
     def add_food_periodically(self):
-        self.add_food(1)  # Dodaje jedno jedzenie
+        self.add_food(1)  #plus one food
 
     def start_food_timer(self, interval):
         self.food_timer.start(interval)
