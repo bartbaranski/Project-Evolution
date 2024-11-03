@@ -4,32 +4,32 @@ import random
 
 class EvolutionAlgorithm:
     def __init__(self):
-        # Inicjalizujemy parametry algorytmu
-        self.population_size = 100  # Ustawiamy rozmiar populacji
-        self.generations = 50  # Ustawiamy liczbę generacji
+        
+        self.population_size = 100  
+        self.generations = 50  
 
     def initialize_population(self):
-        # Metoda inicjalizująca populację
-        pass  # Zastąpienie późniejszą implementacją
+        
+        pass  
 
     def evaluate_fitness(self):
-        # Metoda oceniająca dopasowanie
-        pass  # Zastąpienie późniejszą implementacją
+        
+        pass 
 
     def selection(self):
-        # Metoda selekcji
-        pass  # Zastąpienie późniejszą implementacją
+        
+        pass  
 
     def crossover(self):
-        # Metoda krzyżowania
-        pass  # Zastąpienie późniejszą implementacją
+       
+        pass  
 
     def mutation(self):
-        # Metoda mutacji
-        pass  # Zastąpienie późniejszą implementacją
+        
+        pass  
 
     def mutate(self, dot):
-        # Prosta mutacja - zmienia prędkość kropki
+        
         dot.speed += random.uniform(-0.5, 0.5)
         if dot.speed < 0.5:
             dot.speed = 0.5
@@ -37,11 +37,11 @@ class EvolutionAlgorithm:
             dot.speed = 5
 
     def run(self):
-        # Główna pętla algorytmu ewolucyjnego
-        self.initialize_population()  # Inicjalizacja populacji
-        for generation in range(self.generations):  # Pętla po liczbie generacji
-            self.evaluate_fitness()  # Ocena dopasowania
-            self.selection()  # Selekcja najlepszych osobników
-            self.crossover()  # Krzyżowanie wybranych osobników
-            self.mutation()  # Mutacja w nowej populacji
-            # Możliwość dodania logiki do monitorowania postępów
+        
+        self.initialize_population()  
+        for generation in range(self.generations):  
+            self.evaluate_fitness()  
+            self.selection()
+            self.crossover()
+            self.mutation() 
+        
