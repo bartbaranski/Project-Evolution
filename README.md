@@ -19,8 +19,3 @@ https://bartbaranski.github.io/Project-Evolution/reports/analysis_notebook.html
 - Dynamic mutation rate adjustment based on performance improvement.
 - CSV logging for detailed experiment data.
 
-## Installation
-
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/yourusername/ProjectEvolution.git
